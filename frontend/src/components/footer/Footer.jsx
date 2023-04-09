@@ -34,8 +34,8 @@ function Footer() {
             <h2>Support</h2>
             <span>Help & Support</span>
             <span>Trust & Safety</span>
-            <span>Selling on Liverr</span>
-            <span>Buying on Liverr</span>
+            <span>Selling on Fiverr</span>
+            <span>Buying on Fiverr</span>
           </div>
           <div className="item">
             <h2>Community</h2>
@@ -53,14 +53,14 @@ function Footer() {
           </div>
           <div className="item">
             <h2>More From Fiverr</h2>
-            <span>Liverr Business</span>
-            <span>Liverr Pro</span>
-            <span>Liverr Logo Maker</span>
-            <span>Liverr Guides</span>
+            <span>Fiverr Business</span>
+            <span>Fiverr Pro</span>
+            <span>Fiverr Logo Maker</span>
+            <span>Fiverr Guides</span>
             <span>Get Inspired</span>
-            <span>Liverr Select</span>
+            <span>Fiverr Select</span>
             <span>ClearVoice</span>
-            <span>Liverr Workspace</span>
+            <span>Fiverr Workspace</span>
             <span>Learn</span>
             <span>Working Not Working</span>
           </div>

@@ -10,7 +10,7 @@ function Gig() {
         <div className="left">
           <span className="breadcrumbs">
             {' '}
-            Liverr &gt; Graphics & Design &gt;
+            Fiverr &gt; Graphics & Design &gt;
           </span>
           <h1>I will create ai generated art for you</h1>
           <div className="user">
