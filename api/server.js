@@ -6,10 +6,6 @@ dotenv.config();
 
 const app = express();
 
-main()
-  .then(() => console.log("mongodb connected"))
-  .catch((err) => console.log(err));
-
 async function main() {
   await mongoose.connect(process.env.MONGO_URL);
 
@@ -20,4 +16,7 @@ async function main() {
 
 app.listen(8080, () => {
   console.log("backend server is running");
+  main()
+    .then(() => console.log("mongodb connected"))
+    .catch((err) => console.log(err));
 });
