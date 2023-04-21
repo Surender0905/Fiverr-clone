@@ -19,12 +19,10 @@ function Navbar() {
     };
   }, []);
 
-  // const currentUser = null
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  const currentUser = {
-    id: 1,
-    username: 'Anna',
-    isSeller: true,
+  const handleLogout = () => {
+    localStorage.setItem('currentUser', null);
   };
 
   return (
@@ -66,7 +64,7 @@ function Navbar() {
                   <Link className="link" to="/messages">
                     Messages
                   </Link>
-                  <Link className="link" to="/">
+                  <Link className="link" onClick={handleLogout}>
                     Logout
                   </Link>
                 </div>
@@ -74,7 +72,9 @@ function Navbar() {
             </div>
           ) : (
             <>
-              <span>Sign in</span>
+              <Link className="link" to="/login">
+                Sign in
+              </Link>
               <Link className="link" to="/register">
                 <button>Join</button>
               </Link>
