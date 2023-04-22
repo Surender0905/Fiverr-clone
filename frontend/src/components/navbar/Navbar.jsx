@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
+import newRequest from '../../utils/newRequest';
 
 function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -21,8 +23,14 @@ function Navbar() {
 
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  const handleLogout = () => {
-    localStorage.setItem('currentUser', null);
+  const handleLogout = async () => {
+    try {
+      await newRequest.post('auth/logout');
+      localStorage.setItem('currentUser', null);
+      navigate('/login');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -41,10 +49,7 @@ function Navbar() {
           {!currentUser?.isSeller && <span>Become a Seller</span>}
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
-              <img
-                src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
+              <img src={currentUser.img || '/img/noavatar.jpg'} alt="user" />
               <span>{currentUser?.username}</span>
               {open && (
                 <div className="options">
